@@ -1,0 +1,35 @@
+using System;
+using System.Windows.Forms;
+
+class Program
+{
+	static void Main()
+	{
+		Application.Run(new Form1());
+	}
+}
+
+class Form1 : Form
+{
+	TextBox t = new TextBox();
+	Button b = new Button();
+	Label l = new Label();
+
+	public Form1()
+	{
+		t.Location = new System.Drawing.Point(10, 10);
+		t.Width = 260;
+
+		b.Text = "Длина";
+		b.Location = new System.Drawing.Point(10, 40);
+		b.Click += (s, e) => l.Text = "Длина: " + t.Text.Length;
+
+		l.Text = "Длина: 0";
+		l.Location = new System.Drawing.Point(10, 70);
+		l.AutoSize = true;
+
+		Controls.Add(t);
+		Controls.Add(b);
+		Controls.Add(l);
+	}
+}
